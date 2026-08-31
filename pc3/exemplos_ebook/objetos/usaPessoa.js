@@ -1,5 +1,5 @@
 // Arquivo criado em projeto no www.stackblitz.com denominado usaPessoa.js
-// Para executar utilize: node ./objetos/usaPessoa.js
+// Para executar utilize: node ./pc3/exemplos_ebook/objetos/usaPessoa.js
 
 const Pessoa = require('./Pessoa.js');
 
