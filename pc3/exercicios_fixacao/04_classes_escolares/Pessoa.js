@@ -1,4 +1,3 @@
-
 class Pessoa{
 
     #nome;
@@ -21,8 +20,10 @@ class Pessoa{
     setEmail(email){
         if(email){
             if(email !== ''){
-                this.#email = email;
-                return true;
+                if(email.includes("@")){
+                    this.#email = email;
+                    return true;
+                }
             }
         }
         return false;
