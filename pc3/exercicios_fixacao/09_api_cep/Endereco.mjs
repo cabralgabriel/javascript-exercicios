@@ -2,12 +2,13 @@ export default class Endereco {
     #cep;
     #logradouro;
     #bairro;
-    #cidade;
+    #localidade;
     #uf;
 
     #estado;
     #regiao;
     #ddd;
+    #complemento;
 
     async setCep(cep) {
         const url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -27,11 +28,17 @@ export default class Endereco {
         this.#cep = dados.cep;
         this.#logradouro = dados.logradouro;
         this.#bairro = dados.bairro;
-        this.#cidade = dados.localidade;
+        this.#localidade = dados.localidade;
         this.#uf = dados.uf;
         this.#estado = dados.estado;
         this.#regiao = dados.regiao;
         this.#ddd = dados.ddd;
+        this.#complemento = dados.complemento;
+    }
+
+    mostrarEnderecoCompleto(){
+        const endereco = `${this.getLogradouro()} ${this.getBairro()}, ${this.getLocalidade()} - ${this.getUf()}`;
+        return endereco;
     }
 
     getCep() {
@@ -46,8 +53,8 @@ export default class Endereco {
         return this.#bairro;
     }
 
-    getCidade() {
-        return this.#cidade;
+    getLocalidade() {
+        return this.#localidade;
     }
 
     getUf() {
@@ -64,6 +71,13 @@ export default class Endereco {
 
     getDDD() {
         return this.#ddd;
+    }
+
+    getComplemento() {
+        if(this.#complemento == ""){
+            return "não informado";
+        }
+        return this.#complemento;
     }
 
 }
