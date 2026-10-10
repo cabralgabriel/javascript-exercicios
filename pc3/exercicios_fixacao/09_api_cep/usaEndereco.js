@@ -4,9 +4,10 @@ async function usaEndereco() {
     const end = new Endereco();
 
     try {
+        //consulta cep existente
         await end.setCep("72015565");
 
-        console.log("✅ Endereço carregado com sucesso:");
+        console.log("Endereço carregado com sucesso:");
         console.log("CEP:", end.getCep());
         console.log("Logradouro:", end.getLogradouro());
         console.log("Complemento:", end.getComplemento());
@@ -19,8 +20,11 @@ async function usaEndereco() {
 
         console.log("Endereço completo: ", end.mostrarEnderecoCompleto());
 
+        //consulta cep inexistente
+        await end.setCep("\n123123");
+
     } catch (erro) {
-        console.error("❌ Erro ao definir CEP:", erro.message);
+        console.error("Erro ao definir CEP:", erro.message);
     }
 }
 
